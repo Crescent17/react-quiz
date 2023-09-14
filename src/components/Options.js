@@ -1,4 +1,8 @@
-export default function Options({question, dispatch, answer}) {
+import {useQuiz} from "../contexts/QuizContext";
+
+export default function Options() {
+    const {questions, dispatch, index, answer} = useQuiz()
+    const question = questions.at(index)
     const hasAnswered = answer !== null
     return <div className='options'>
         {question.options.map((option, index) => <button key={option}
